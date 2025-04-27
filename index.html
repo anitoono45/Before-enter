@@ -3,18 +3,238 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anitoono - Anime Awaits</title>
-    <!-- Link the CSS file -->
-    <link rel="stylesheet" href="style.css">
+    <title>Anitoono - Explore</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS for Anitoono Theme (Dark Background, Red Accents) */
+        body {
+            background-color: #111827; /* Dark background */
+            color: #f9fafb; /* Light text */
+            font-family: 'Inter', sans-serif;
+        }
+        .text-red-500 {
+            color: #ef4444; /* Red color from Tailwind */
+        }
+        .bg-red-500 {
+            background-color: #ef4444; /* Red background from Tailwind */
+        }
+        .hover\:bg-red-600:hover {
+            background-color: #dc2626; /* Darker red hover effect */
+        }
+        .bg-gray-800 {
+            background-color: #1e293b; /* Dark gray background */
+        }
+        .bg-gray-700 {
+            background-color: #374151; /* Slightly lighter dark gray */
+        }
+        .border-red-500 {
+            border-color: #ef4444; /* Red border */
+        }
+        .focus\:ring-red-500:focus {
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.5); /* Red focus ring */
+        }
+        .shadow-custom {
+            box-shadow: 0 5px 15px rgba(239, 68, 68, 0.3); /* Custom red shadow */
+        }
+
+        /* Hero Section Background Image (Optional, replace with your image) */
+        .hero-background {
+            background-image: url('https://placehold.co/1920x1080/1e293b/374151?text=Epic+Anime+Background'); /* Placeholder background image */
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Overlay for Hero Section */
+        .hero-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(17, 24, 39, 0.7); /* Dark overlay */
+        }
+
+        /* Ensure content is above the overlay */
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+         /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Responsive adjustments for smaller screens */
+        @media (max-width: 767px) {
+            .hero-background {
+                padding-top: 6rem; /* Adjust padding for smaller screens */
+                padding-bottom: 6rem;
+            }
+            .hero-content h1 {
+                font-size: 2.5rem; /* Adjust font size */
+            }
+             .hero-content p {
+                font-size: 1.125rem; /* Adjust font size */
+            }
+             .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+             .grid-cols-1 {
+                grid-template-columns: 1fr; /* Stack features on small screens */
+            }
+             .md\:grid-cols-3 {
+                grid-template-columns: 1fr; /* Override larger screen grid */
+            }
+            /* Center header content and stack navigation */
+            .header-content {
+                flex-direction: column;
+                align-items: center;
+            }
+            .header-nav {
+                margin-top: 0.75rem; /* Add space between logo and nav */
+                margin-right: 0; /* Remove right margin */
+                width: 100%; /* Allow nav to take full width */
+                justify-content: center; /* Center nav items */
+            }
+             .header-nav a {
+                margin: 0 0.5rem; /* Adjust horizontal margin for stacked items */
+                 padding: 0.5rem 0.75rem; /* Increase touch target size */
+            }
+        }
+         @media (min-width: 768px) {
+            .header-content {
+                flex-direction: row;
+            }
+             .header-nav {
+                display: flex; /* Display horizontally on larger screens */
+                flex-direction: row;
+                 align-items: center;
+                 margin-top: 0; /* Remove top margin */
+            }
+             .header-nav a {
+                margin: 0 0.75rem; /* Adjust horizontal margin */
+            }
+        }
+    </style>
 </head>
-<body>
-    <div class="landing-page">
-        <div class="overlay"></div>
-        <div class="content">
-            <h1>Welcome to <span class="brand-name">Anitoono</span></h1>
-            <p>Step into the magical world of anime, where stories come alive.</p>
-            <a href="https://github.com/anitoono45/home" class="enter-button">Explore Anime</a>
+<body class="bg-gray-900 text-white">
+
+    <header class="bg-gray-800 py-4 flex justify-between items-center shadow-md sticky top-0 z-10 rounded-md">
+        <div class="container mx-auto px-4 flex header-content">
+            <div class="logo text-red-500 text-2xl font-semibold">Anitoono</div>
+            <nav class="header-nav flex items-center space-x-4 md:space-x-6">
+                <a href="#" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Home</a>
+                <a href="#features" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Features</a>
+                <a href="#contact" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200">Contact</a>
+            </nav>
         </div>
-    </div>
+    </header>
+
+    <section class="hero-background text-white py-24 md:py-32 text-center">
+        <div class="hero-content container mx-auto px-4">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">
+                Dive into the World of <span class="text-red-500">Anime</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Discover your next favorite series, movies, and more.
+            </p>
+            <button
+                id="start-watching-button"
+                class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-300 inline-block shadow-custom focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+            >
+                Start Watching
+            </button>
+        </div>
+    </section>
+
+    <section id="features" class="py-16 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-red-500 mb-12">Key Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-md">
+                    <div class="text-red-500 text-4xl mb-4">
+                        <i class="fas fa-infinity"></i> </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Vast Library</h3>
+                    <p class="text-gray-300">Access a huge collection of anime series and movies.</p>
+                </div>
+                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-md">
+                    <div class="text-red-500 text-4xl mb-4">
+                        <i class="fas fa-mobile-alt"></i> </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Watch Anywhere</h3>
+                    <p class="text-gray-300">Enjoy your favorite anime on any device.</p>
+                </div>
+                <div class="bg-gray-700 rounded-lg p-6 text-center shadow-md">
+                    <div class="text-red-500 text-4xl mb-4">
+                         <i class="fas fa-star"></i> </div>
+                    <h3 class="text-xl font-semibold text-white mb-3">Personalized Recommendations</h3>
+                    <p class="text-gray-300">Get suggestions based on your viewing history.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 bg-gray-900 text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">Ready to Start Watching?</h2>
+            <p class="text-xl text-gray-300 mb-8">
+                Sign up or log in to unlock the full Anitoono experience.
+            </p>
+             <button
+                 id="join-anitoono-button"
+                 class="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-colors duration-300 inline-block shadow-custom focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+             >
+                Join Anitoono
+            </button>
+        </div>
+     </section>
+
+
+    <footer id="contact" class="bg-gray-800 py-8 text-center text-gray-400">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2023 Anitoono. All rights reserved.</p>
+            <div class="mt-4 text-sm">
+                <a href="https://anitoono45.github.io/home" class="text-gray-400 hover:text-white mx-2">Privacy Policy</a>
+                <span class="mx-2">|</span>
+                <a href="https://anitoono45.github.io/home" class="text-gray-400 hover:text-white mx-2">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Get references to the buttons
+        const startWatchingButton = document.getElementById('start-watching-button');
+        const joinAnitoonoButton = document.getElementById('join-anitoono-button');
+
+        // Add event listener to the "Start Watching" button
+        startWatchingButton.addEventListener('click', () => {
+            // Redirect to the specified URL
+            window.location.href = 'https://anitoono45.github.io/home';
+        });
+
+        // Add event listener to the "Join Anitoono" button
+        joinAnitoonoButton.addEventListener('click', () => {
+             // Redirect to the specified URL
+            window.location.href = 'https://anitoono45.github.io/home';
+        });
+
+         // Optional: Smooth scrolling for navigation links (if you use the header)
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+    </script>
 </body>
 </html>
+
